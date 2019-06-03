@@ -1,19 +1,32 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import Navbar from './components/layouts/Navbar';
+import Login from './components/auth/Login';
+import QrScan from './components/qr-scan/QrScan';
+import CreateShipment from './components/shipments/createShipment'
+import Home from './components/home/Home';
+import AdminHome from './components/home/AdminHome';
+
+
+
 
 class App extends Component {
   render() {
     return (
+      <BrowserRouter>
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <Navbar />
+      
+      <Switch>
+      
+      <Route path='/home' component = {Home} />
+      <Route path='/adminhome' component = {AdminHome} />
+      <Route path='/signin' component = {Login} />
+      <Route path='/qr' component={QrScan} />
+      <Route path='/create' component={CreateShipment} />
+      </Switch>
       </div>
+      </BrowserRouter>
     );
   }
 }

@@ -3,9 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "aos": "^2.3.4",
+    "bootstrap": "^4.3.1",
+    "coreui": "^0.4.2-alpha2",
+    "firebase": "^6.1.0",
+    "jquery": "^3.4.1",
     "react": "^16.8.6",
+    "react-confirm-alert": "^2.4.1",
     "react-dom": "^16.8.6",
-    "react-scripts": "0.9.5"
+    "react-qr-scanner": "0.0.8",
+    "react-redux": "^7.0.3",
+    "react-redux-firebase": "^2.2.6",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "0.9.5",
+    "reactstrap": "^8.0.0",
+    "redux": "^4.0.1",
+    "redux-firestore": "^0.8.0",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {},
   "scripts": {
