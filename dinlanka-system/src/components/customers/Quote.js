@@ -59,7 +59,7 @@ class Quote extends Component {
                   <Col xs="6">
                     <FormGroup>
                       <Label htmlFor="ccmonth">Origin Country</Label>
-                      <Input type="select" name="origin_country" id="origin_country">
+                      <Input type="select" name="origin_country" id="origin_country" onChange={this.handleChange}>
                         <option value="1">England</option>
                         <option value="2">Scotland</option>
                         <option value="3">Wales</option>
@@ -73,7 +73,7 @@ class Quote extends Component {
                     </FormGroup>
                     <FormGroup>
                       <Label htmlFor="ccmonth">Origin City</Label>
-                      <Input type="select" name="origin-city" id="origin_city">
+                      <Input type="select" name="origin-city" id="origin_city" onChange={this.handleChange}>
                         <option value="1">England</option>
                         <option value="2">Scotland</option>
                         <option value="3">Wales</option>
@@ -88,14 +88,14 @@ class Quote extends Component {
 
                     <FormGroup>
                       <Label htmlFor="email-input">Origin Zip Code</Label>
-                      <Input type="text" id="origin_zip" name="origin_zip" placeholder="Origin Zip Code" />
+                      <Input type="text" id="origin_zip" name="origin_zip" placeholder="Origin Zip Code" onChange={this.handleChange} />
                   </FormGroup>
 
                   </Col>
                   <Col xs="6">
                     <FormGroup>
                       <Label htmlFor="ccyear">Destination Country</Label>
-                      <Input type="select" name="desti-country" id="desti_countr">
+                      <Input type="select" name="desti-country" id="desti_countr" onChange={this.handleChange}>
                         <option value="1">England</option>
                         <option value="2">Scotland</option>
                         <option value="3">Wales</option>
@@ -110,7 +110,7 @@ class Quote extends Component {
 
                     <FormGroup>
                       <Label htmlFor="ccyear">Destination City</Label>
-                      <Input type="select" name="desti-city" id="desti_city">
+                      <Input type="select" name="desti-city" id="desti_city" onChange={this.handleChange}>
                         <option value="1">England</option>
                         <option value="2">Scotland</option>
                         <option value="3">Wales</option>
@@ -124,7 +124,7 @@ class Quote extends Component {
                     </FormGroup>
                     <FormGroup>
                       <Label htmlFor="email-input">Destination Zip Code</Label>
-                      <Input type="text" id="desti_zip" name="desti_zip" placeholder="Destination Zip Code" />
+                      <Input type="text" id="desti_zip" name="desti_zip" placeholder="Destination Zip Code" onChange={this.handleChange} />
                   </FormGroup>
                  
                   </Col>
@@ -138,7 +138,7 @@ class Quote extends Component {
                 <FormGroup >
                     
                       <Label htmlFor="date-input"> <h5>Shipping Date </h5></Label>
-                      <Input type="date" id="ship_date" name="ship_date" placeholder="date" />
+                      <Input type="date" id="ship_date" name="ship_date" placeholder="date" onChange={this.handleChange} />
                     
                   </FormGroup>
                   </Col>
@@ -146,7 +146,7 @@ class Quote extends Component {
                   <FormGroup>
                   
                       <Label htmlFor="email-input"><h5>Weight of the Item (Kg)</h5></Label>
-                      <Input type="number" id="weight" name="weight" placeholder="Weight" />
+                      <Input type="number" id="weight" name="weight" placeholder="Weight" onChange={this.handleChange} />
                       
                   </FormGroup>
                   </Col>
