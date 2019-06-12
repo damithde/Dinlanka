@@ -5,22 +5,20 @@ import SignedInLinks from './SignedInLinks'
 import SignedOutLinks from './SignedOutLinks'
 
 ;
-import { Nav, Navbar  } from 'reactstrap';
-import logo from '../../assets/logo.svg'
-import sygnet from '../../assets/sygnet.svg'
+import {Navbar,NavItem} from 'react-materialize';
+import Logo from "./dinlanka.png";
+import './style.css';
+
+const Img = <img src={Logo} alt={"YourBrand"} style={{padding:5+ 'px', left: 150+ 'px', top:5 + 'px'}}/>;
 
 const NavBar = (props) => {
     const {auth} = props;
     const links = auth.uid ? <SignedInLinks /> : <SignedOutLinks />
     return(
-        <React.Fragment>
-        
-       
-        <Navbar color="white" light expand="md">
-        
-        <Nav className="d-md-down-none" navbar>
+        <React.Fragment>       
+        <Navbar className="Header black" brand={Img} alignLinks="right">
           {links}
-        </Nav>
+        </Navbar>
 
         {/* <Nav className="ml-auto" navbar>
           <NavItem className="d-md-down-none">
@@ -53,7 +51,6 @@ const NavBar = (props) => {
             </DropdownMenu>
           </AppHeaderDropdown>
         </Nav> */}
-        </Navbar>
         
        
         {/*<AppAsideToggler className="d-lg-none" mobile />*/}

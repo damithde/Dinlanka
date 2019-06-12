@@ -18,16 +18,12 @@ import '../../js/main.js';
 
 
 
+
 import bg from '../../images/hero_bg_1.jpg';
 class Home extends Component {
 
     render() {
     const { projects, auth,profile } = this.props;
-if (!auth.uid) return <Redirect to='/signin' />
-else {
-  if(profile.isAdmin) {return <Redirect to='/adminhome' />}
-      
-}
         
         return (
           <React.Fragment>
@@ -41,10 +37,10 @@ else {
             <div className="col-12 col-md-10 d-none d-xl-block">
               <nav className="site-navigation position-relative text-right" role="navigation">
                 <ul className="site-menu js-clone-nav mx-auto d-none d-lg-block">
-                  <li className="active"><a href="index.html">Home</a></li>
-                  <li><a href="about.html">About Us</a></li>
+                  <li className="active"><a href="index.html">HOME</a></li>
+                  <li><a href="about.html">ABOUT US</a></li>
                   <li className="has-children">
-                    <a href="services.html">Services</a>
+                    <a href="services.html">KEY SERVICES</a>
                     <ul className="dropdown">
                       <li><a href="#">Air Freight</a></li>
                       <li><a href="#">Ocean Freight</a></li>
@@ -53,9 +49,11 @@ else {
                       <li><a href="#">Storage</a></li>
                     </ul>
                   </li>
-                  <li><a href="industries.html">Industries</a></li>
-                  <li><a href="blog.html">Blog</a></li>
-                  <li><a href="contact.html">Contact</a></li>
+                  <li><a href="industries.html">UPB CARGO</a></li>
+                  <li><a href="blog.html">CUSTOMRS</a></li>
+                  <li><a href="contact.html">CONTACT</a></li>
+                  <li><a href="/signin">LOGIN</a></li>
+                  <li><a href="/signup">REGISTER</a></li>
                 </ul>
               </nav>
             </div>

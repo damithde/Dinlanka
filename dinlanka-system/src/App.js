@@ -6,7 +6,9 @@ import QrScan from './components/qr-scan/QrScan';
 import CreateShipment from './components/shipments/createShipment'
 import Home from './components/home/Home';
 import AdminHome from './components/home/AdminHome';
-
+import Landpage from './components/customers/Landpage';
+import AgentHome from './components/home/AgentHome';
+import Signup from './components/auth/SignUp';
 
 
 
@@ -15,8 +17,7 @@ class App extends Component {
     return (
       <BrowserRouter>
       <div className="App">
-      <Navbar />
-      
+            <Navbar/>
       <Switch>
       
       <Route path='/home' component = {Home} />
@@ -24,6 +25,9 @@ class App extends Component {
       <Route path='/signin' component = {Login} />
       <Route path='/qr' component={QrScan} />
       <Route path='/create' component={CreateShipment} />
+      <Route path='/quote' component={Landpage} />
+      <Route path='/agenthome' component={AgentHome} />
+      <Route path='/signup' component={Signup} />
       </Switch>
       </div>
       </BrowserRouter>

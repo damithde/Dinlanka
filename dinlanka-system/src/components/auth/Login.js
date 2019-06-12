@@ -3,6 +3,9 @@ import { Redirect } from 'react-router-dom';
 import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
 import { signIn } from '../../store/actions/authActions'
 import { connect } from 'react-redux'
+import {TextInput,NavItem,CardPanel}from 'react-materialize';
+
+
 
 class Login extends Component {
   state = {
@@ -24,59 +27,52 @@ class Login extends Component {
     console.log(profile)
     if(auth.uid){
       if(profile.isAdmin) {return <Redirect to='/adminhome' />}
-      else {return <Redirect to='/home' />}
+      else {return <Redirect to='/agenthome' />}
   
-    } 
-    
-
+    }     
     return (
       <div className="app flex-row align-items-center">
-        <Container>
-          <Row className="justify-content-center">
-            <Col md="8">
-              <CardGroup>
-                <Card className="p-4">
-                  <CardBody>
-                    <Form onSubmit={this.handleSubmit}>
-                      <h1>Login</h1>
-                      <p className="text-muted">Sign In to your account</p>
-                      <InputGroup className="mb-3">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="icon-user"></i>
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input type="email" placeholder="Email" id = 'email'  onChange={this.handleChange} />
-                      </InputGroup>
-                      <InputGroup className="mb-4">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="icon-lock"></i>
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input type="password" placeholder="Password" id = 'password' onChange={this.handleChange} />
-                      </InputGroup>
-                      <Row>
-                        <Col xs="6">
-                          <Button color="dark" className="px-4">Login</Button>
+      <Container>
+        <Row className="justify-content-center">
+          <Col md="8">
+            <CardGroup>
+              <Card className="p-4">
+                <CardBody style={{ color:'black' }}>
+                  <Form onSubmit={this.handleSubmit}>
+                  <CardPanel className="teal">
+                      <span >
+                      <div className="text-center" style={{color: 'black'}}><h1>SIGN IN</h1></div>
+                      </span>
+                  </CardPanel>
+                    <InputGroup className="mb-3">
+                      <TextInput  icon="email" type="email" placeholder="Email" id = 'email'   onChange={this.handleChange} />
+                    </InputGroup>
+                    <InputGroup className="mb-4">
+                      <TextInput  icon="lock" type="password" placeholder="Password" id = 'password'  onChange={this.handleChange} />
+                    </InputGroup>
+                    <Row >
+                        <Col xs={{ size: 7.5, offset: 5 }} >
+                        <div className="text-right"><Button  color="dark" className="text-center">Login</Button></div>
                         </Col>
-                        <Col xs="6" className="text-right">
-                          <Button color="link" className="px-0">Forgot password?</Button>
-                        </Col>
-                      </Row>
-                    </Form>
-                  </CardBody>
-                </Card>
-                
-              </CardGroup>
-            </Col>
-          </Row>
-        </Container>
-
-        <div className="center red-text">
-                            { authError ? <p>{authError}</p> : null }
-                        </div>
+                    </Row>
+                    <Row>
+                    <Col xs="7" >
+                    <p>
+                    <div className="text-right"><NavItem  style={{color: 'black'}} href="" >Forgot Password?</NavItem></div>
+                    </p>
+                    </Col>
+                    </Row>
+                  </Form>
+                </CardBody>
+              </Card>         
+            </CardGroup>
+          </Col>
+        </Row>
+      </Container>
+      <div className="center red-text">
+      { authError ? <p>{authError}</p> : null }
       </div>
+    </div>
     );
   }
 }
