@@ -48,6 +48,9 @@ class Quote extends Component {
 
     return(
       <React.Fragment>
+              <div className="container">
+
+
         <Card>
               <CardHeader className='bg-primary'>
                 <strong>Online Quotation</strong>
@@ -74,15 +77,11 @@ class Quote extends Component {
                     <FormGroup>
                       <Label htmlFor="ccmonth">Origin City</Label>
                       <Input type="select" name="origin-city" id="origin_city" onChange={this.handleChange}>
-                        <option value="1">England</option>
-                        <option value="2">Scotland</option>
-                        <option value="3">Wales</option>
-                        <option value="4">France</option>
-                        <option value="5">Italy</option>
-                        <option value="6">Singapore</option>
-                        <option value="7">Sri Lanka</option>
-                        <option value="8">UAE</option>
-                        <option value="9">Germany</option>
+                        <option value="1">London</option>
+                        <option value="2">Cardif</option>
+                        <option value="3">Manchester</option>
+                        <option value="4">Bristol</option>
+
                       </Input>
                     </FormGroup>
 
@@ -111,15 +110,11 @@ class Quote extends Component {
                     <FormGroup>
                       <Label htmlFor="ccyear">Destination City</Label>
                       <Input type="select" name="desti-city" id="desti_city" onChange={this.handleChange}>
-                        <option value="1">England</option>
-                        <option value="2">Scotland</option>
-                        <option value="3">Wales</option>
-                        <option value="4">France</option>
-                        <option value="5">Italy</option>
-                        <option value="6">Singapore</option>
-                        <option value="7">Sri Lanka</option>
-                        <option value="8">UAE</option>
-                        <option value="9">Germany</option>
+                      <option value="1">Colombo</option>
+                        <option value="2">Galle</option>
+                        <option value="3">Kandy</option>
+                        <option value="4">Jaffnal</option>
+      
                       </Input>
                     </FormGroup>
                     <FormGroup>
@@ -161,6 +156,7 @@ class Quote extends Component {
               </CardFooter>
               </Form>
             </Card>
+            </div>
             </React.Fragment>
 
     )

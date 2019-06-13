@@ -68,7 +68,6 @@ class Home extends Component {
             
               <h1 className="text-white font-weight-light mb-5 font-weight-bold">DinLanka Logistics (Pvt) Ltd</h1>
               <h3 className="text-white font-weight-light mb-5 font-weight">“SERVICE BEYOND BORDERS” ONE OF THE BEST TOTAL LOGISTICS PROVIDER</h3>
-              <p><a href="#" className="btn btn-primary py-3 px-5 text-white">Get Started!</a></p>
             </div>
           </div>
         </div>
@@ -81,22 +80,15 @@ class Home extends Component {
               <div className="icon">
                 <span className="icon-dollar" />
               </div>
-              <h2 className="my-4 heading">Best Prices</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ipsum odio minima tempora animi iure.</p>
+              <h2 className="my-4 heading">Find the best price for your cargo through our realtime Quotation System</h2>
+              <p><b></b> </p>
             </div>
           </div>
           <div className="col-md-4">
             <div className="free-quote bg-dark h-100">
               <h2 className="my-4 heading  text-center">Get Free Quote</h2>
               <form method="post">
-                <div className="form-group">
-                  <label htmlFor="fq_name">Name</label>
-                  <input type="text" className="form-control btn-block" id="fq_name" name="fq_name" placeholder="Enter Name" />
-                </div>
-                <div className="form-group mb-4">
-                  <label htmlFor="fq_email">Email</label>
-                  <input type="text" className="form-control btn-block" id="fq_email" name="fq_email" placeholder="Enter Email" />
-                </div>
+               
                 <div className="form-group">
                   <input type="submit" className="btn btn-primary text-white py-2 px-4 btn-block" defaultValue="Get Quote" />  
                 </div>
@@ -108,8 +100,8 @@ class Home extends Component {
               <div className="icon">
                 <span className="icon-phone" />
               </div>
-              <h2 className="my-4 heading">24/7 Support</h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ipsum odio minima tempora animi iure.</p>
+              <h2 className="my-4 heading"> Track your Cargo realtime through our GPS based tracking System</h2>
+              <p> </p>
             </div>
           </div>
         </div>

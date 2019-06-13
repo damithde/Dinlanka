@@ -61,7 +61,7 @@ class CreateShipment extends Component {
         </form> */}
   
   <Card>
-              <CardHeader>
+              <CardHeader className='bg-primary'>
                 <strong><h3>Create A New Shipment</h3></strong> 
               </CardHeader>
               <CardBody>
@@ -120,7 +120,6 @@ class CreateShipment extends Component {
 
   </Card>
 
-  <Quote/>
  
 </div>
       
