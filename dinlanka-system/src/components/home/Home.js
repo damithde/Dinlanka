@@ -15,13 +15,10 @@ import '../../js/jquery-3.3.1.min.js';
 import AOS from 'aos'
 import '../../js/aos.js';
 import '../../js/main.js';
-
-
-
-
 import bg from '../../images/hero_bg_1.jpg';
-class Home extends Component {
 
+
+class Home extends Component {
     render() {
     const { projects, auth,profile } = this.props;
         
@@ -38,22 +35,31 @@ class Home extends Component {
               <nav className="site-navigation position-relative text-right" role="navigation">
                 <ul className="site-menu js-clone-nav mx-auto d-none d-lg-block">
                   <li className="active"><a href="index.html">HOME</a></li>
-                  <li><a href="about.html">ABOUT US</a></li>
+                  <li><a href="/aboutus">ABOUT US</a></li>
                   <li className="has-children">
                     <a href="services.html">KEY SERVICES</a>
                     <ul className="dropdown">
-                      <li><a href="#">Air Freight</a></li>
-                      <li><a href="#">Ocean Freight</a></li>
-                      <li><a href="#">Ground Shipping</a></li>
-                      <li><a href="#">Warehousing</a></li>
-                      <li><a href="#">Storage</a></li>
+                      <li><a href="/korserice">KOR/EOR Services</a></li>
+                      <li><a href="/oceanfreight">Ocean Freight</a></li>
+                      <li><a href="/airfreight">Air Freight</a></li>
+                      <li><a href="/seaairservice">Sea Air Service</a></li>
+                      <li><a href="/cargoinsurance">Cargo Insurance</a></li>
+                      <li><a href="/containers">New and Used Containers</a></li>
+                      <li><a href="/supplychain">Supply Chain Management</a></li>
                     </ul>
                   </li>
-                  <li><a href="industries.html">UPB CARGO</a></li>
-                  <li><a href="blog.html">CUSTOMRS</a></li>
-                  <li><a href="contact.html">CONTACT</a></li>
+                  <li><a href="/upbcargo">UPB CARGO</a></li>
+                  <li className="has-children">
+                    <a href="services.html">CUSTOMERS</a>
+                    <ul className="dropdown">
+                      <li><a href="/supportcenter">Support Center</a></li>
+                      <li><a href="/tracking">Dinlanka Tracking</a></li>
+                      <li><a href="/needquote">Need A Quote</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="/contact">CONTACT US</a></li>
                   <li><a href="/signin">LOGIN</a></li>
-                  <li><a href="/signup">REGISTER</a></li>
+                  
                 </ul>
               </nav>
             </div>
