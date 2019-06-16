@@ -34,7 +34,7 @@ class Home extends Component {
             <div className="col-12 col-md-10 d-none d-xl-block">
               <nav className="site-navigation position-relative text-right" role="navigation">
                 <ul className="site-menu js-clone-nav mx-auto d-none d-lg-block">
-                  <li className="active"><a href="index.html">HOME</a></li>
+                  <li className="active"><a href="/home">HOME</a></li>
                   <li><a href="/aboutus">ABOUT US</a></li>
                   <li className="has-children">
                     <a href="services.html">KEY SERVICES</a>
