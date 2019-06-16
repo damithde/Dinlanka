@@ -13,7 +13,7 @@ import AboutUs from './components/home/AboutUs';
 import AirFreight from './components/home/AirFreight';
 import CargoInsurance from './components/home/CargoInsurance';
 import Contact from './components/home/Contact';
-import KorServices from './components/home/KorServices';
+import IorServices from './components/home/IorServices';
 import NewUsedContain from './components/home/NewUsedContain';
 import OceanFreight from './components/home/OceanFreight';
 import SeaAirService from './components/home/SeaAirService';
@@ -44,7 +44,7 @@ class App extends Component {
       <Route path='/airfreight' component={AirFreight} />
       <Route path='/cargoinsurance' component={CargoInsurance} />
       <Route path='/contact' component={Contact} />
-      <Route path='/korservice' component={KorServices} />
+      <Route path='/iorservice' component={IorServices} />
       <Route path='/containers' component={NewUsedContain} />
       <Route path='/oceanfreight' component={OceanFreight} />
       <Route path='/seaairserice' component={SeaAirService} />

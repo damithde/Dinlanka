@@ -39,7 +39,7 @@ class Home extends Component {
                   <li className="has-children">
                     <a href="services.html">KEY SERVICES</a>
                     <ul className="dropdown">
-                      <li><a href="/korserice">KOR/EOR Services</a></li>
+                      <li><a href="/iorservice">IOR/EOR Services</a></li>
                       <li><a href="/oceanfreight">Ocean Freight</a></li>
                       <li><a href="/airfreight">Air Freight</a></li>
                       <li><a href="/seaairservice">Sea Air Service</a></li>
