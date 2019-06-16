@@ -173,8 +173,8 @@ Containers for Sale
       </div>
 
           
-         
-        </React.Fragment>
+      </React.Fragment>     
+        
         )
      
     }
