@@ -85,9 +85,8 @@ class SupplyChain extends Component {
               
             </div>             
             <div className="h-entry">
-            Many logistics providers claim to offer supply chain integration, yet very few have the infrastructure to provide this service. The Dinlanka Group strategy is to be a specialist in each segment of the supply chain and integrate these businesses to provide a single offering to our clients. The coordination and management of this service involves a single Client Relationship Management (CRM) structure and our information control platform.
-
-Dinlanka Group’s land-based logistics services include contract warehousing and distribution services in both the originating and destination countries. Dinlanka’s infrastructure and capabilities provide a seamless execution from placement of international purchase order through to delivery to store/site/point of consumption. If our land-based logistics is not the ‘right fit’ we will source and work with your chosen third-party provider.
+            <p>Many logistics providers claim to offer supply chain integration, yet very few have the infrastructure to provide this service. The Dinlanka Group strategy is to be a specialist in each segment of the supply chain and integrate these businesses to provide a single offering to our clients. The coordination and management of this service involves a single Client Relationship Management (CRM) structure and our information control platform.</p>
+             <p>Dinlanka Group’s land-based logistics services include contract warehousing and distribution services in both the originating and destination countries. Dinlanka’s infrastructure and capabilities provide a seamless execution from placement of international purchase order through to delivery to store/site/point of consumption. If our land-based logistics is not the ‘right fit’ we will source and work with your chosen third-party provider.</p>
             </div>
            
           </div>          
