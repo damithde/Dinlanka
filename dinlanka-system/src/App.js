@@ -47,7 +47,7 @@ class App extends Component {
       <Route path='/iorservice' component={IorServices} />
       <Route path='/containers' component={NewUsedContain} />
       <Route path='/oceanfreight' component={OceanFreight} />
-      <Route path='/seaairserice' component={SeaAirService} />
+      <Route path='/seaairservice' component={SeaAirService} />
       <Route path='/supplychain' component={SupplyChain} />
       <Route path='/supportcenter' component={SupportCenter} />
       <Route path='/upbcargo' component={UPBCargo} />
