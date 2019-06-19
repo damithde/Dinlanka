@@ -29,10 +29,10 @@ class App extends Component {
     return (
       <BrowserRouter>
       <div className="App">
-            
+      
       <Switch>
       
-      <Route path='/home' component = {Home} />
+      <Route exact path='/' component = {Home} />
       <Route path='/adminhome' component = {AdminHome} />
       <Route path='/signin' component = {Login} />
       <Route path='/qr' component={QrScan} />

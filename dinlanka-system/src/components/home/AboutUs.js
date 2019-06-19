@@ -16,7 +16,7 @@ import '../../js/aos.js';
 import '../../js/main.js';
 import bg from '../../images/hero_bg_1.jpg';
 import img from '../../images/img.jpg';
-
+import logo from '../../assets/logo-edited.jpg'
 
 class AboutUs extends Component {
     render() {
@@ -28,12 +28,12 @@ class AboutUs extends Component {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-11 col-xl-2">
-              <h1 className="mb-0"><a href="index.html" className="text-white h2 mb-0">DinLanka</a></h1>
+            <h1 className="mb-0"><a href="/" className="text-white h2 mb-0"><img src={logo}/></a></h1>
             </div>
             <div className="col-12 col-md-10 d-none d-xl-block">
               <nav className="site-navigation position-relative text-right" role="navigation">
                 <ul className="site-menu js-clone-nav mx-auto d-none d-lg-block">
-                  <li className="active"><a href="/home">HOME</a></li>
+                  <li className="active"><a href="/">HOME</a></li>
                   <li><a href="/aboutus">ABOUT US</a></li>
                   <li className="has-children">
                     <a href="services.html">KEY SERVICES</a>
