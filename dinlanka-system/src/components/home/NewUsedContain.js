@@ -14,7 +14,7 @@ import '../../js/jquery-3.3.1.min.js';
 import AOS from 'aos'
 import '../../js/aos.js';
 import '../../js/main.js';
-import bg from '../../images/hero_bg_1.jpg';
+import bg from '../../images/242.jpg';
 import img1 from '../../images/rsz_20gp_04.jpg';
 import img2 from '../../images/rsz_120gp_09.jpg';
 

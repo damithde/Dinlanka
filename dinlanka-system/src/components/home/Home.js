@@ -15,7 +15,7 @@ import '../../js/jquery-3.3.1.min.js';
 import AOS from 'aos'
 import '../../js/aos.js';
 import '../../js/main.js';
-import bg from '../../images/hero_bg_1.jpg';
+import bg from '../../images/242.jpg';
 import logo from '../../assets/logo-edited.jpg'
 
 class Home extends Component {
