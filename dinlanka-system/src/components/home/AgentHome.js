@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Button, Card, CardBody, CardGroup, Col,CustomInput,FormGroup, Container,Modal,ModalHeader,ModalBody,ModalFooter, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
-import {TextInput,NavItem,CardPanel,Select}from 'react-materialize';
+import { Card, CardBody, Col, Container, Row } from 'reactstrap';
+import {CardPanel}from 'react-materialize';
+import AgentNavbar from '../layouts/AgentNavbar';
 
 
 
@@ -16,6 +17,8 @@ class Home extends Component {
 }
         
         return (
+          <React.Fragment>
+          <AgentNavbar/>
         <div className="app align-items-center">
         <Container>
           <Row className="justify-content-center">
@@ -33,6 +36,7 @@ class Home extends Component {
           </Row>
         </Container>
       </div>
+      </React.Fragment>
         )
      
     }
