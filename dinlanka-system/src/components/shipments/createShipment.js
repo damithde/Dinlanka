@@ -4,6 +4,7 @@ import { createShipment } from '../../store/actions/shipmentActions'
 import { updateShipment } from '../../store/actions/shipmentActions'
 import { Redirect } from 'react-router-dom'
 import  Quote  from '../customers/Quote'
+import FlashMessage from 'react-flash-message'
 import {
   
   Button,
@@ -16,6 +17,8 @@ import {
   FormGroup,
   Input,
   Label,
+  FormFeedback,
+  Alert
 
 } from 'reactstrap';
 
@@ -24,18 +27,47 @@ class CreateShipment extends Component {
     shipment_id: '',
     type: '',
     customer: '',
-    customer_id:''
+    customer_id:'',
+    ship_er: true,
+    val: ""
   }
   handleChange = (e) => {
+    
     this.setState({
       [e.target.id]: e.target.value
     })
+    
+  }
+  handleError = () => {
+    if (this.state.shipment_id == '' && this.state.type == '' && this.state.customer == '' && this.state.customer_id == ''){
+      this.state.ship_er = false;
+    }
+    else {
+    this.state.ship_er = true;}
   }
   handleSubmit = (e) => {
     e.preventDefault();
+    this.handleError();
     // console.log(this.state);
-    this.props.createShipment(this.state);
-    this.props.history.push('/home');
+    if (this.state.ship_er) {
+      console.log(this.state);
+      this.props.createShipment(this.state);
+      this.setState({
+        val:"Data Added Successfully"
+      })
+      this.props.history.push('/');
+    }
+    else {
+        console.log("check");
+        console.log(this.state);
+        this.setState({
+          val:"Please Fill all the required fields"
+        })
+
+      console.log(this.state.val);
+     
+    }
+    
   }
 
   render() {
@@ -43,7 +75,7 @@ class CreateShipment extends Component {
     //if (!auth.uid) return <Redirect to='/signin' /> 
     return (
       <div className="container">
-
+         
         
         {/* <form className="white" onSubmit={this.handleSubmit}>
           <h5 className="grey-text text-darken-3">Create a New Shipment</h5>
@@ -79,7 +111,8 @@ class CreateShipment extends Component {
                       <Label htmlFor="text-input">Shipment ID</Label>
                     </Col>
                     <Col xs="12" md="9">
-                      <Input type="text" id='shipment_id' onChange={this.handleChange} name="text-input" placeholder="Shipment Id" />
+                      <Input invalid type="text" id='shipment_id' onChange={this.handleChange} name="text-input" placeholder="Shipment Id" />
+                      { this.state.ship_er ? <FormFeedback invalid>Sweet! that name is available</FormFeedback> : null }
                       
                     </Col>
                   </FormGroup>
@@ -89,7 +122,7 @@ class CreateShipment extends Component {
                     </Col>
                     <Col xs="12" md="9">
                       <Input type="text" id="type" name="text-input" placeholder="Type" onChange={this.handleChange} />
-                      
+                      <FormFeedback invalid>Sweet! that name is available</FormFeedback>
                     </Col>
                   </FormGroup>
                   <FormGroup row>
@@ -117,14 +150,25 @@ class CreateShipment extends Component {
                 <Button form="tex" type="submit" size="sm" color="primary"><i className="fa fa-dot-circle-o"></i> Submit</Button>
                 <Button form="tex" type="reset" size="sm" color="danger"><i className="fa fa-ban"></i> Reset</Button>
               </CardFooter>
+              
+
 
   </Card>
+  <br />
+  <FlashMessage duration={99999999000} persistOnHover={true}>
+    <strong style={{color:'red'}}>{this.state.val}</strong>
+      </FlashMessage>
+      <Alert color = 'primary'>
+    This is a alert—check it out!
+  </Alert>
 
  
 </div>
+
       
     )
   }
+  
 }
 
 const mapStateToProps = (state) => {
