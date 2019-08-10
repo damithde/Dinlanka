@@ -13,9 +13,9 @@ class Home extends Component {
     const { projects, auth,profile } = this.props;
     if (!auth.uid) return <Redirect to='/signin' />
     else {
-    if(profile.isAdmin) {return <Redirect to='/adminhome' />}
+    if(profile.isAdmin=="yes") {return <Redirect to='/adminhome' />}
       
-}
+     }
         
         return (
           <React.Fragment>
