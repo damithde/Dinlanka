@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Card, CardBody, Col, Container, Row } from 'reactstrap';
 import {CardPanel}from 'react-materialize';
 import AgentNavbar from '../layouts/AgentNavbar';
+import CreateShipment from '../shipments/createShipment'
 
 
 
@@ -19,22 +20,24 @@ class Home extends Component {
         return (
           <React.Fragment>
           <AgentNavbar/>
+          <img src={require('../../images/logiman.png')} class="floatRight"></img>
+
         <div className="app align-items-center">
         <Container>
           <Row className="justify-content-center">
-            <Col md="8">
+            <Col md="10">
                 <Card className="p-4">
                   <CardBody style={{ color:'black' }}>
                     <CardPanel className="teal">
-                        <span >
-                        <div className="text-center" style={{color: 'black'}}><h1> Agent Home Page</h1></div>
-                        </span>
+                        
+                        <CreateShipment/>
                     </CardPanel>
                   </CardBody>
                 </Card>         
             </Col>
           </Row>
         </Container>
+
       </div>
       </React.Fragment>
         )
