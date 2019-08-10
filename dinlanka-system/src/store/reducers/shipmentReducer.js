@@ -1,5 +1,7 @@
 
-const initState = {}
+const initState = {
+
+}
 
 const shipmentReducer = (state = initState, action) => {
   switch (action.type) {

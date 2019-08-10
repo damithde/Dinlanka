@@ -5,7 +5,7 @@ import { Card, CardBody, Col, Container, Row } from 'reactstrap';
 import {CardPanel}from 'react-materialize';
 import AgentNavbar from '../layouts/AgentNavbar';
 import CreateShipment from '../shipments/createShipment'
-
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 
 class Home extends Component {
@@ -29,7 +29,7 @@ class Home extends Component {
                 <Card className="p-4">
                   <CardBody style={{ color:'black' }}>
                     <CardPanel className="teal">
-                        
+       
                         <CreateShipment/>
                     </CardPanel>
                   </CardBody>
