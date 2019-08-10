@@ -5,6 +5,9 @@ import { updateShipment } from '../../store/actions/shipmentActions'
 import { Redirect } from 'react-router-dom'
 import  Quote  from '../customers/Quote'
 import FlashMessage from 'react-flash-message'
+import { browserHistory } from 'react-router';
+import { createHashHistory } from 'history'
+import { withRouter } from "react-router";
 import {
   
   Button,
@@ -17,12 +20,14 @@ import {
   FormGroup,
   Input,
   Label,
-  FormFeedback,
-  Alert
+  Table
 
 } from 'reactstrap';
 
+
+
 class CreateShipment extends Component {
+  
   state = {
     shipment_id: '',
     type: '',
@@ -40,11 +45,16 @@ class CreateShipment extends Component {
   }
   handleError = () => {
     if (this.state.shipment_id == '' && this.state.type == '' && this.state.customer == '' && this.state.customer_id == ''){
-      this.state.ship_er = false;
+      this.setState({
+        ship_er:false
+      })
     }
     else {
-    this.state.ship_er = true;}
+      this.setState({
+        ship_er:true
+      })
   }
+}
   handleSubmit = (e) => {
     e.preventDefault();
     this.handleError();
@@ -52,13 +62,17 @@ class CreateShipment extends Component {
     if (this.state.ship_er) {
       console.log(this.state);
       this.props.createShipment(this.state);
+      this.props.history.push('/');
+      alert("Data Added Successfully")
       this.setState({
         val:"Data Added Successfully"
       })
-      this.props.history.push('/');
+
+      
     }
     else {
         console.log("check");
+        alert("Please Fill all the required fields")
         console.log(this.state);
         this.setState({
           val:"Please Fill all the required fields"
@@ -72,25 +86,12 @@ class CreateShipment extends Component {
 
   render() {
     const { auth } = this.props;
-    //if (!auth.uid) return <Redirect to='/signin' /> 
+    if (!auth.uid) return <Redirect to='/signin' /> 
     return (
       <div className="container">
          
         
-        {/* <form className="white" onSubmit={this.handleSubmit}>
-          <h5 className="grey-text text-darken-3">Create a New Shipment</h5>
-          <div className="input-field">
-            <input type="text" id='title' onChange={this.handleChange} />
-            <label htmlFor="title">Project Title</label>
-          </div>
-          <div className="input-field">
-            <textarea id="content" className="materialize-textarea" onChange={this.handleChange}></textarea>
-            <label htmlFor="content">Project Content</label>
-          </div>
-          <div className="input-field">
-            <button className="btn pink lighten-1">Create</button>
-          </div>
-        </form> */}
+        
   
   <Card>
               <CardHeader className='bg-primary'>
@@ -111,8 +112,8 @@ class CreateShipment extends Component {
                       <Label htmlFor="text-input">Shipment ID</Label>
                     </Col>
                     <Col xs="12" md="9">
-                      <Input invalid type="text" id='shipment_id' onChange={this.handleChange} name="text-input" placeholder="Shipment Id" />
-                      { this.state.ship_er ? <FormFeedback invalid>Sweet! that name is available</FormFeedback> : null }
+                      <Input type="text" id='shipment_id' onChange={this.handleChange} name="text-input" placeholder="Shipment Id" />
+                      
                       
                     </Col>
                   </FormGroup>
@@ -122,7 +123,7 @@ class CreateShipment extends Component {
                     </Col>
                     <Col xs="12" md="9">
                       <Input type="text" id="type" name="text-input" placeholder="Type" onChange={this.handleChange} />
-                      <FormFeedback invalid>Sweet! that name is available</FormFeedback>
+                      
                     </Col>
                   </FormGroup>
                   <FormGroup row>
@@ -155,13 +156,8 @@ class CreateShipment extends Component {
 
   </Card>
   <br />
-  <FlashMessage duration={99999999000} persistOnHover={true}>
-    <strong style={{color:'red'}}>{this.state.val}</strong>
-      </FlashMessage>
-      <Alert color = 'primary'>
-    This is a alert—check it out!
-  </Alert>
 
+  
  
 </div>
 
@@ -183,4 +179,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateShipment)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CreateShipment))

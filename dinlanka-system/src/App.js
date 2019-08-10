@@ -4,6 +4,7 @@ import Navbar from './components/layouts/Navbar';
 import Login from './components/auth/Login';
 import QrScan from './components/qr-scan/QrScan';
 import CreateShipment from './components/shipments/createShipment'
+import UpdateShipment from './components/shipments/updateShipment'
 import Home from './components/home/Home';
 import AdminHome from './components/home/AdminHome';
 import Landpage from './components/customers/Landpage';
@@ -22,12 +23,13 @@ import SupportCenter from './components/home/SupportCenter';
 import UPBCargo from './components/home/UPBCargo';
 import NeedQuote from './components/home/NeedQuote';
 import Tracking from './components/home/Tracking';
+import { browserHistory } from 'react-router';
 
 
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
+      <BrowserRouter history={browserHistory}>
       <div className="App">
       
       <Switch>
@@ -37,6 +39,7 @@ class App extends Component {
       <Route path='/signin' component = {Login} />
       <Route path='/qr' component={QrScan} />
       <Route path='/create' component={CreateShipment} />
+      <Route path='/update' component={UpdateShipment} />
       <Route path='/quote' component={Landpage} />
       <Route path='/agenthome' component={AgentHome} />
       <Route path='/signup' component={Signup} />
