@@ -24,8 +24,8 @@ class SignUp extends Component {
     this.props.signUp(this.state);
   }
   render() {
-    const { auth, authError } = this.props;
-    //if(!auth.uid){return <Redirect to='/signin' />}
+    const { auth,authError } = this.props;
+    if(!auth.uid){return <Redirect to='/signin' />}
     
     return ( 
      

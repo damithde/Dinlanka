@@ -10,14 +10,18 @@ const AdminNavbar = (props) => {
         
       <div className="collapse navbar-collapse" id="navbarColor01">
         <ul className="navbar-nav mr-auto">
-          <li className="nav-item active">
-            <a className="nav-link" href="/signup">Register Agents</a>
+        <li className="nav-item dropdown">
+        <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Agents</a>
+        <div className="dropdown-menu">
+          <a className="dropdown-item" href="/signup">Register Agents</a>
+          <a className="dropdown-item" href="/manage">Manage Agents</a>         
+        </div>
+        </li>
+          <li className="nav-item">
+            <a className="nav-link" href="#">Shipments</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">Location Update</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/">Employee Details</a>
+            <a className="nav-link" href="/">Orders</a>
           </li>
        
         </ul>
