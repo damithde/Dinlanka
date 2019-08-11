@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-//import firebase from '../config/fbConfig'
+import firebase from '../../config/fbConfig.js'
 import { Link } from 'react-router-dom';
+import AdminNavbar from '../layouts/AdminNavbar';
+import { Table ,Button, Card, CardHeader, CardFooter, CardBody,CardTitle, CardText,Row,Col} from 'reactstrap';
 
 class Show extends Component {
 
   constructor(props) {
     super(props);
-    //this.ref = firebase.firestore().collection('users');
+    this.ref = firebase.firestore().collection('users');
     this.unsubscribe = null;
     this.state = {
       boards: []
@@ -37,21 +39,24 @@ class Show extends Component {
 
   render() {
     return (
-      <div class="container">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">
-              Users List
-            </h3>
-          </div>
-          <div class="panel-body">
-            <table class="table table-stripe">
+      <React.Fragment>
+      <AdminNavbar/>
+      <Row></Row>
+       
+      <div class="container"> 
+        <Row>
+          <Col>
+        <Card>
+        <CardHeader>Agent Details</CardHeader>
+        <CardBody>
+            
+          <Table dark>
               <thead>
                 <tr>
                   <th>Full Name</th>
                   <th>User Name</th>
                   <th>Email</th>
-                  <th>Passwrod</th>
+                  <th>Password</th>
                 </tr>
               </thead>
               <tbody>
@@ -61,15 +66,19 @@ class Show extends Component {
                     <td>{board.username}</td>
                     <td>{board.email}</td>
                     <td>{board.password}</td>
-                    <td>update</td>
-                    <td>delte</td>
+                    <td>{this.state.key}</td>
+                    <td><Button color="info" size="sm" href={`/edit/${board.key}`}>Update</Button></td>
+                    <td><Button color="danger" size="sm">Delete</Button></td>
                   </tr>
                 )}
               </tbody>
-            </table>
-          </div>
-        </div>
+            </Table>
+            </CardBody>
+            </Card>
+            </Col>
+            </Row>
       </div>
+    </React.Fragment>
     );
   }
 }

@@ -25,6 +25,7 @@ import NeedQuote from './components/home/NeedQuote';
 import Tracking from './components/home/Tracking';
 import { browserHistory } from 'react-router';
 import show from './components/Admin/manage';
+import Edit from './components/Admin/edit';
 
 
 class App extends Component {
@@ -58,6 +59,7 @@ class App extends Component {
       <Route path='/needquote' component={NeedQuote} />
       <Route path='/tracking' component={Tracking} />
       <Route path='/manage' component={show} />
+      <Route path='/edit' component={Edit} />
       </Switch>
       </div>
       </BrowserRouter>

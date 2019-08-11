@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-//import firebase from '../Firebase';
+import firebase from '../../config/fbConfig.js'
 import { Link } from 'react-router-dom';
+import { Button, Card, CardBody, CardGroup, Col,CustomInput,FormGroup, Container,Modal,ModalHeader,ModalBody,ModalFooter, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
+import { Label, FormFeedback, FormText , CardFooter,CardHeader,} from 'reactstrap';
+import AdminNavbar from '../layouts/AdminNavbar';
 
 class Edit extends Component {
 
@@ -16,7 +19,7 @@ class Edit extends Component {
   }
 
   componentDidMount() {
-    //const ref = firebase.firestore().collection('users').doc(this.props.match.params.id);
+    const ref = firebase.firestore().collection('users').doc(this.props.match.params.id);
     ref.get().then((doc) => {
       if (doc.exists) {
         const board = doc.data();
@@ -42,7 +45,7 @@ class Edit extends Component {
   onSubmit = (e) => {
     e.preventDefault();
 
-    const { title, description, author } = this.state;
+    const { fullname, username, email,password} = this.state;
 
     const updateRef = firebase.firestore().collection('users').doc(this.state.key);
     updateRef.set({
@@ -57,7 +60,7 @@ class Edit extends Component {
         email: '',
         password: ''
       });
-      this.props.history.push("/show/"+this.props.match.params.id)
+      this.props.history.push("/manage/"+this.props.match.params.id)
     })
     .catch((error) => {
       console.error("Error adding document: ", error);
@@ -66,33 +69,71 @@ class Edit extends Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="panel panel-default">
-          <div className="panel-heading">
-            <h3 className="panel-title">
-              EDIT BOARD
-            </h3>
-          </div>
-          <div className="panel-body">
-            <h4><Link to={`/show/${this.state.key}`} className="btn btn-primary">Board List</Link></h4>
-            <form onSubmit={this.onSubmit}>
-              <div className="form-group">
-                <label for="title">Title:</label>
-                <input type="text" className="form-control" name="title" value={this.state.title} onChange={this.onChange} placeholder="Title" />
-              </div>
-              <div className="form-group">
-                <label for="description">Description:</label>
-                <input type="text" className="form-control" name="description" value={this.state.description} onChange={this.onChange} placeholder="Description" />
-              </div>
-              <div className="form-group">
-                <label for="author">Author:</label>
-                <input type="text" className="form-control" name="author" value={this.state.author} onChange={this.onChange} placeholder="Author" />
-              </div>
-              <button type="submit" className="btn btn-success">Submit</button>
-            </form>
-          </div>
-        </div>
-      </div>
+        <React.Fragment>
+        <AdminNavbar/> 
+        <div className="container">
+
+        <Card>
+            <CardHeader className='bg-primary'>
+              <strong><h3>Regsiter Agents</h3></strong> 
+            </CardHeader>
+            <CardBody>
+              <Form id="tex" onSubmit={this.onSubmit} className="form-horizontal">
+                <FormGroup row>
+                  <Col md="3">
+                    
+                  </Col>
+                  <Col xs="12" md="9">
+                    <p className="form-control-static"></p>
+                  </Col>
+                </FormGroup>
+                <FormGroup row>
+                  <Col md="2">
+                    <Label htmlFor="text-input">Full Name</Label>
+                  </Col>
+                  <Col xs="12" md="9">
+                    <Input type="text" id='fullname' onChange={this.onChange}  value={this.state.fullname} name="text-input" placeholder="Full name" />
+                    
+                  </Col>
+                </FormGroup>
+                <FormGroup row>
+                  <Col md="2">
+                    <Label htmlFor="text-input">User Name</Label>
+                  </Col>
+                  <Col xs="12" md="9">
+                    <Input type="text" id="username" name="text-input" placeholder="username" value={this.state.username} onChange={this.onChange}  />
+                    
+                  </Col>
+                </FormGroup>
+                <FormGroup row>
+                  <Col md="2">
+                    <Label htmlFor="email-input">Email</Label>
+                  </Col>
+                  <Col xs="12" md="9">
+                    <Input type="text" id="email" name="text-input" placeholder="email"  value={this.state.email} onChange={this.onChange}  />
+                   
+                  </Col>
+                </FormGroup>
+                <FormGroup row>
+                  <Col md="2">
+                    <Label htmlFor="text-input">Password</Label>
+                  </Col>
+                  <Col xs="12" md="9">
+                    <Input type="password" id="password" name="text-input" placeholder="password" value={this.state.password} onChange={this.onChange}  />                    
+                  </Col>
+                </FormGroup>
+                               
+            
+            <CardFooter>
+              <Button form="tex" type="submit" size="sm" color="primary"><i className="fa fa-dot-circle-o"></i> Submit</Button>
+              <Button form="tex" type="reset" size="sm" color="danger"><i className="fa fa-ban"></i> Reset</Button>
+            </CardFooter>
+            </Form>
+            </CardBody>
+
+         </Card>
+         </div>
+    </React.Fragment>
     );
   }
 }
