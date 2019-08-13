@@ -3,14 +3,14 @@ import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { signUp } from '../../store/actions/authActions'
 import { Button, Card, CardBody, CardGroup, Col,CustomInput,FormGroup, Container,Modal,ModalHeader,ModalBody,ModalFooter, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
-import {TextInput,NavItem,CardPanel,Select}from 'react-materialize';
-
+import { Label, FormFeedback, FormText , CardFooter,CardHeader,} from 'reactstrap';
+import AdminNavbar from '../layouts/AdminNavbar';
 
 class SignUp extends Component {
   state = {
     email: '',
     password: '',
-    fName: '',
+    fullName: '',
     username: '',
     isAdmin:'',
   }
@@ -19,68 +19,137 @@ class SignUp extends Component {
       [e.target.id]: e.target.value
     })
   }
+  handleError = () => {
+    if (this.state.fullname == '' && this.state.username == '' && this.state.email== '' && this.state.password == ''){
+      this.setState({
+        user_er:false
+      })
+    }
+    else {
+      this.setState({
+        user_er:true
+      })
+  }
+}
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.signUp(this.state);
+    //this.props.signUp(this.state);
+    this.handleError();
+    // console.log(this.state);
+    if (this.state.user_er) {
+      console.log(this.state);
+      this.props.createShipment(this.state);
+      this.props.history.push('/signup');
+      alert("Data Added Successfully")
+      this.setState({
+        val:"Data Added Successfully"
+      })
+
+      
+    }
+    else {
+        console.log("check");
+        alert("Please Fill all the required fields")
+        console.log(this.state);
+        this.setState({
+          val:"Please Fill all the required fields"
+        })
+
+      console.log(this.state.val);
+     
+    }
   }
   render() {
-    const { auth, authError } = this.props;
-    if (auth.uid) return <Redirect to='/' /> 
-    return (     
-        <div className="app align-items-center">
-        <Container>
-          <Row className="justify-content-center">
-            <Col md="8">
-              <CardGroup>
-                <Card className="p-4">
-                  <CardBody style={{ color:'black' }}>
-                    <Form onSubmit={this.handleSubmit}>
-                    <CardPanel className="teal">
-                        <span >
-                        <div className="text-center" style={{color: 'black'}}><h1>REGISTER USERS</h1></div>
-                        </span>
-                    </CardPanel>
-                      <InputGroup className="mb-3">
-                        <TextInput  icon="face" type="text" placeholder="Full Name"  id= 'fName'  onChange={this.handleChange} />
-                      </InputGroup>
-                      <InputGroup className="mb-3">
-                        <TextInput  icon="face" type="text" placeholder="Username"  id= 'username'  onChange={this.handleChange} />
-                      </InputGroup>
-                      <InputGroup className="mb-3">
-                        <TextInput  icon="email" type="email" placeholder="Email" id= 'email' onChange={this.handleChange} />
-                      </InputGroup>
-                      <InputGroup className="mb-3">
-                        <Select icon="cloud" id='isAdmin'  onChange={this.handleChange}>
-                            <option value="Admin" >
-                                Admin
-                            </option>
-                            <option value="Agent">
-                                Agent
-                            </option>
-                        </Select>
-                      </InputGroup>
-                      <InputGroup className="mb-4">
-                        <TextInput  icon="lock" type="password" placeholder="Password" id= 'password' onChange={this.handleChange} />
-                      </InputGroup>                
-                      <Row >
-                          <Col xs={{ size: 7.5, offset: 5 }} >
-                          <div className="text-right"><Button   color="dark" className="text-center">Submit</Button></div>
-                          </Col>
-                      </Row>
-                    </Form>
-                  </CardBody>
-                </Card>         
-              </CardGroup>
-            </Col>
-          </Row>
-        </Container>
-        <div className="center red-text">
-        { authError ? <p>{authError}</p> : null }
-        </div>
+    const { auth,authError } = this.props;
+    //if(!auth.uid){return <Redirect to='/signin' />}
+    
+    return ( 
+     
+      <React.Fragment>
+          <AdminNavbar/> 
+          <div className="container">
+ 
+          <Card>
+              <CardHeader className='bg-primary'>
+                <strong><h3>Regsiter Agents</h3></strong> 
+              </CardHeader>
+              <CardBody>
+                <Form id="tex" onSubmit={this.handleSubmit} className="form-horizontal">
+                  <FormGroup row>
+                    <Col md="3">
+                      
+                    </Col>
+                    <Col xs="12" md="9">
+                      <p className="form-control-static"></p>
+                    </Col>
+                  </FormGroup>
+                  <FormGroup row>
+                    <Col md="2">
+                      <Label htmlFor="text-input">Full Name</Label>
+                    </Col>
+                    <Col xs="12" md="9">
+                      <Input type="text" id='fullname' onChange={this.handleChange} name="text-input" placeholder="Full name" />
+                      
+                    </Col>
+                  </FormGroup>
+                  <FormGroup row>
+                    <Col md="2">
+                      <Label htmlFor="text-input">User Name</Label>
+                    </Col>
+                    <Col xs="12" md="9">
+                      <Input type="text" id="username" name="text-input" placeholder="username" onChange={this.handleChange} />
+                      
+                    </Col>
+                  </FormGroup>
+                  <FormGroup row>
+                    <Col md="2">
+                      <Label htmlFor="text-input">User Type</Label>
+                    </Col>
+                    <Col xs="12" md="9">
+                    <Input type="select" name="isAdmin" id="isAdmin" onChange={this.handleChange} >
+                            <option value="yes"> Admin</option>
+                            <option value="no">Agent</option>
+                    </Input>                     
+                    </Col>
+                  </FormGroup>
+
+                  <FormGroup row>
+                    <Col md="2">
+                      <Label htmlFor="email-input">Email</Label>
+                    </Col>
+                    <Col xs="12" md="9">
+                      <Input type="text" id="email" name="text-input" placeholder="email" onChange={this.handleChange} />
+                     
+                    </Col>
+                  </FormGroup>
+                  <FormGroup row>
+                    <Col md="2">
+                      <Label htmlFor="text-input">Password</Label>
+                    </Col>
+                    <Col xs="12" md="9">
+                      <Input type="password" id="password" name="text-input" placeholder="password" onChange={this.handleChange} />                    
+                    </Col>
+                  </FormGroup>
+                                 
+              
+              <CardFooter>
+                <Button form="tex" type="submit" size="sm" color="primary"><i className="fa fa-dot-circle-o"></i> Submit</Button>
+                <Button form="tex" type="reset" size="sm" color="danger"><i className="fa fa-ban"></i> Reset</Button>
+              </CardFooter>
+              </Form>
+              </CardBody>
+
+           </Card>
+           <div className="center red-text">
+              { authError ? <p>{authError}</p> : null }
+            </div>
+
       </div>
+      </React.Fragment>
     );
   }
 }
+
 
 const mapStateToProps = (state) => {
   return {

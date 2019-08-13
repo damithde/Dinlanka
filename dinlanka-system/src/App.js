@@ -4,6 +4,7 @@ import Navbar from './components/layouts/Navbar';
 import Login from './components/auth/Login';
 import QrScan from './components/qr-scan/QrScan';
 import CreateShipment from './components/shipments/createShipment'
+import UpdateShipment from './components/shipments/updateShipment'
 import Home from './components/home/Home';
 import AdminHome from './components/home/AdminHome';
 import Landpage from './components/customers/Landpage';
@@ -22,12 +23,16 @@ import SupportCenter from './components/home/SupportCenter';
 import UPBCargo from './components/home/UPBCargo';
 import NeedQuote from './components/home/NeedQuote';
 import Tracking from './components/home/Tracking';
+import { browserHistory } from 'react-router';
+import Manage from './components/Admin/manage';
+import Edit from './components/Admin/edit';
+import Show from './components/Admin/show';
 
 
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
+      <BrowserRouter history={browserHistory}>
       <div className="App">
       
       <Switch>
@@ -37,6 +42,7 @@ class App extends Component {
       <Route path='/signin' component = {Login} />
       <Route path='/qr' component={QrScan} />
       <Route path='/create' component={CreateShipment} />
+      <Route path='/update' component={UpdateShipment} />
       <Route path='/quote' component={Landpage} />
       <Route path='/agenthome' component={AgentHome} />
       <Route path='/signup' component={Signup} />
@@ -53,6 +59,9 @@ class App extends Component {
       <Route path='/upbcargo' component={UPBCargo} />
       <Route path='/needquote' component={NeedQuote} />
       <Route path='/tracking' component={Tracking} />
+      <Route path='/manage' component={Manage}  />
+      <Route path='/edit/:id' render={(props) => <Edit {...props}/>} />
+      <Route path='/show/:id' render={(props) => <Show {...props}/>} />
       </Switch>
       </div>
       </BrowserRouter>
