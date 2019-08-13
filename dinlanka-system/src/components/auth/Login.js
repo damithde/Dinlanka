@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
+import { Button, Card, CardBody, CardGroup, Col, Container, Form,  InputGroup,  Row } from 'reactstrap';
 import { signIn } from '../../store/actions/authActions'
 import { connect } from 'react-redux'
 import {TextInput,NavItem,CardPanel}from 'react-materialize';
@@ -45,10 +45,10 @@ class Login extends Component {
                       </span>
                   </CardPanel>
                     <InputGroup className="mb-3">
-                      <TextInput  icon="email" type="email" placeholder="Email" id = 'email'   onChange={this.handleChange} />
+                      <TextInput  icon="email" type="email" placeholder="Email" id='email'   onChange={this.handleChange} />
                     </InputGroup>
                     <InputGroup className="mb-4">
-                      <TextInput  icon="lock" type="password" placeholder="Password" id = 'password'  onChange={this.handleChange} />
+                      <TextInput  icon="lock" type="password" placeholder="Password" id='password'  onChange={this.handleChange} />
                     </InputGroup>
                     <Row >
                         <Col xs={{ size: 7.5, offset: 5 }} >

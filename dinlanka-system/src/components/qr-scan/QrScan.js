@@ -12,7 +12,6 @@ import {
   Card,
   CardBody,
   CardHeader,
-  Col,
   Badge,
   Collapse
 
@@ -161,7 +160,7 @@ class QrScan extends Component {
  
     return(
       <React.Fragment>
-        <div className = 'container'>
+        <div className='container'>
       <Card>
         <CardBody>
          {/*  <Col md='3'></Col>
@@ -177,7 +176,7 @@ class QrScan extends Component {
         </CardBody>
       </Card>
       </div>
-      <div className = 'container'>
+      <div className='container'>
       <Card>
               <CardHeader>
                 <i className="fa fa-align-justify"></i> Collapse <small>accordion</small>

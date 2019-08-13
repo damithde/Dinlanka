@@ -12,7 +12,7 @@ import '../../fonts/flaticon/font/flaticon.css';
 import '../../css/aos.css';
 import '../../css/style.css';
 import '../../js/jquery-3.3.1.min.js';
-import AOS from 'aos'
+
 import '../../js/aos.js';
 import '../../js/main.js';
 import bg from '../../images/242.jpg';
@@ -20,7 +20,7 @@ import logo from '../../assets/logo-edited.jpg'
 
 class Home extends Component {
     render() {
-    const { projects, auth,profile } = this.props;
+   
         
         return (
           <React.Fragment>
@@ -96,7 +96,7 @@ class Home extends Component {
               <form method="post">
                
                 <div className="form-group">
-                  <input type="submit" className="btn btn-primary text-white py-2 px-4 btn-block" defaultValue="Get Quote" />  
+                  <input type="link" className="btn btn-primary text-white py-2 px-4 btn-block" defaultValue="/quote" />  
                 </div>
               </form>
             </div>
