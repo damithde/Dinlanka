@@ -24,8 +24,9 @@ import UPBCargo from './components/home/UPBCargo';
 import NeedQuote from './components/home/NeedQuote';
 import Tracking from './components/home/Tracking';
 import { browserHistory } from 'react-router';
-import show from './components/Admin/manage';
+import Manage from './components/Admin/manage';
 import Edit from './components/Admin/edit';
+import Show from './components/Admin/show';
 
 
 class App extends Component {
@@ -58,8 +59,9 @@ class App extends Component {
       <Route path='/upbcargo' component={UPBCargo} />
       <Route path='/needquote' component={NeedQuote} />
       <Route path='/tracking' component={Tracking} />
-      <Route path='/manage' component={show} />
-      <Route path='/edit' component={Edit} />
+      <Route path='/manage' component={Manage}  />
+      <Route path='/edit/:id' render={(props) => <Edit {...props}/>} />
+      <Route path='/show/:id' render={(props) => <Show {...props}/>} />
       </Switch>
       </div>
       </BrowserRouter>

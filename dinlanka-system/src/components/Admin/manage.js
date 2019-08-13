@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import AdminNavbar from '../layouts/AdminNavbar';
 import { Table ,Button, Card, CardHeader, CardFooter, CardBody,CardTitle, CardText,Row,Col} from 'reactstrap';
 
-class Show extends Component {
+
+class Manage extends Component {
 
   constructor(props) {
     super(props);
@@ -36,7 +37,7 @@ class Show extends Component {
   componentDidMount() {
     this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
   }
-
+  
   render() {
     return (
       <React.Fragment>
@@ -56,19 +57,14 @@ class Show extends Component {
                   <th>Full Name</th>
                   <th>User Name</th>
                   <th>Email</th>
-                  <th>Password</th>
                 </tr>
               </thead>
               <tbody>
-                {this.state.boards.map(board =>
-                  <tr>
-                    <td>{board.fullname}</td>
+              {this.state.boards.map((board, index) =>
+                  <tr key={index}>
+                    <td><Link to={`/show/${board.key}`}>{board.fullname}</Link></td>
                     <td>{board.username}</td>
                     <td>{board.email}</td>
-                    <td>{board.password}</td>
-                    <td>{this.state.key}</td>
-                    <td><Button color="info" size="sm" href={`/edit/${board.key}`}>Update</Button></td>
-                    <td><Button color="danger" size="sm">Delete</Button></td>
                   </tr>
                 )}
               </tbody>
@@ -84,4 +80,4 @@ class Show extends Component {
 }
 
 
-export default Show;
+export default Manage;

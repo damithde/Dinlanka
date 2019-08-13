@@ -19,13 +19,49 @@ class SignUp extends Component {
       [e.target.id]: e.target.value
     })
   }
+  handleError = () => {
+    if (this.state.fullname == '' && this.state.username == '' && this.state.email== '' && this.state.password == ''){
+      this.setState({
+        user_er:false
+      })
+    }
+    else {
+      this.setState({
+        user_er:true
+      })
+  }
+}
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.signUp(this.state);
+    //this.props.signUp(this.state);
+    this.handleError();
+    // console.log(this.state);
+    if (this.state.user_er) {
+      console.log(this.state);
+      this.props.createShipment(this.state);
+      this.props.history.push('/signup');
+      alert("Data Added Successfully")
+      this.setState({
+        val:"Data Added Successfully"
+      })
+
+      
+    }
+    else {
+        console.log("check");
+        alert("Please Fill all the required fields")
+        console.log(this.state);
+        this.setState({
+          val:"Please Fill all the required fields"
+        })
+
+      console.log(this.state.val);
+     
+    }
   }
   render() {
     const { auth,authError } = this.props;
-    if(!auth.uid){return <Redirect to='/signin' />}
+    //if(!auth.uid){return <Redirect to='/signin' />}
     
     return ( 
      
