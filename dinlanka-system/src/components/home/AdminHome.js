@@ -6,9 +6,30 @@ import { Card, Button, CardImg, CardTitle, CardText, CardColumns,CardSubtitle, C
 import firebase from '../../config/fbConfig.js'
 
 
-
 class AdminHome extends Component {
+  constructor(props) {
+    super(props);
+    
+  }
+
+  userCount = () => {
+    return (dispatch, getState, {getFirestore}) => {
+      //console.log(id);
+      const firestore = getFirestore();
+      const db = firestore.collection('users');
+      var getCount;
+      db.get()
+  .then(function(querySnapshot) {
+    console.log("njhjhjh"+querySnapshot)
+    getCount=querySnapshot.size;
+    console.log(getCount);
+        
+    });
+};
+}
     render() {
+
+      this.userCount();
     const { projects, auth } = this.props;
 if (!auth.uid) return <Redirect to='/signin' />
 else console.log(auth.uid) 
@@ -29,7 +50,7 @@ else console.log(auth.uid)
         <CardBody>
           <CardTitle>Card title</CardTitle>
           <CardSubtitle>Card subtitle</CardSubtitle>
-          <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
+          <CardText></CardText>
           <Button>Button</Button>
         </CardBody>
       </Card>
