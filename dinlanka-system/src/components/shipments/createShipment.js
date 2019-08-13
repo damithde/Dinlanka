@@ -1,12 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { createShipment } from '../../store/actions/shipmentActions'
-import { updateShipment } from '../../store/actions/shipmentActions'
 import { Redirect } from 'react-router-dom'
-import  Quote  from '../customers/Quote'
-import FlashMessage from 'react-flash-message'
-import { browserHistory } from 'react-router';
-import { createHashHistory } from 'history'
+
 import { withRouter } from "react-router";
 import {
   
@@ -20,7 +16,7 @@ import {
   FormGroup,
   Input,
   Label,
-  Table
+
 
 } from 'reactstrap';
 
@@ -44,7 +40,7 @@ class CreateShipment extends Component {
     
   }
   handleError = () => {
-    if (this.state.shipment_id == '' && this.state.type == '' && this.state.customer == '' && this.state.customer_id == ''){
+    if (this.state.shipment_id === '' && this.state.type === '' && this.state.customer === '' && this.state.customer_id === ''){
       this.setState({
         ship_er:false
       })

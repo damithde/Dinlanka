@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+
 import { connect } from 'react-redux';
-import {CardPanel}from 'react-materialize';
+
 import AgentNavbar from '../layouts/AgentNavbar';
-import CreateShipment from './createShipment'
+
 import { compose } from 'redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import ShipmentList from './shipmentList';

@@ -1,23 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { createShipment } from '../../store/actions/shipmentActions'
-import { updateShipment } from '../../store/actions/shipmentActions'
-import { Redirect } from 'react-router-dom'
-import  Quote  from '../customers/Quote'
-import {
-  
-  Button,
-  Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
-  Col,
-  Form,
-  FormGroup,
-  Input,
-  Label,
 
-} from 'reactstrap';
+import  Quote  from '../customers/Quote'
+
 
 class Landpage extends Component {
 
