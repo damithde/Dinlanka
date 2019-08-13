@@ -6,7 +6,11 @@ export const createShipment = (project) => {
       const firestore = getFirestore();
       firestore.collection('shipments3').add({
         ...project,
-        location:"place01"
+        location:"place01",
+        geo:{
+          lat:"51.509865",
+          lon:"-0.118092"
+        }
         
       }).then(() => {
         dispatch({ type: 'CREATE_PROJECT_SUCCESS' });
