@@ -74,10 +74,10 @@ class Quote extends Component {
 
     return(
       <React.Fragment>
-              <div className="container">
+              <div className="container"  style={{width: '900px',padding:'15px'}}>
 
 
-        <Card>
+        <Card style={{padding:'15px'}} >
               <CardHeader className='bg-primary'>
                 <strong>Online Quotation</strong>
                 <small> Dinlanka (Pvt) Ltd</small>
@@ -158,16 +158,16 @@ class Quote extends Component {
                 <Col xs="3">
                 <FormGroup >
                     
-                      <Label htmlFor="date-input"> <h5>Shipping Date </h5></Label>
-                      <Input type="date" id="ship_date" name="ship_date" placeholder="date" onChange={this.handleChange} />
+                      <Label htmlFor="date-input"> Shipping Date </Label>
+                      <Input type="date" id="ship_date" name="ship_date" onChange={this.handleChange} />
                     
                   </FormGroup>
                   </Col>
                   <Col xs="3">
                   <FormGroup>
                   
-                      <Label htmlFor="email-input"><h5>Weight of the Item (Kg)</h5></Label>
-                      <Input type="number" id="weight" name="weight" step="0.1" placeholder="Weight" onChange={this.handleChange} />
+                      <Label htmlFor="email-input">Weight of the Item </Label>
+                      <Input type="number" id="weight" name="weight" step="0.1" placeholder="Weight (Kg)" onChange={this.handleChange} />
                       
                   </FormGroup>
                   </Col>
@@ -193,7 +193,7 @@ class Quote extends Component {
                 
 
                 <Button form="tex" type="submit" size="sm" color="primary"><i className="fa fa-dot-circle-o"></i> Submit</Button>
-                
+                <div class="divider" style={{width:'30px',height:'auto',display:'inline-block'}}/>
               
                 <Button form="tex" type="reset" size="sm" color="danger"><i className="fa fa-ban"></i> Reset</Button>
               </CardFooter>
