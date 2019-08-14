@@ -1,12 +1,23 @@
+import firebase from '../../config/fbConfig.js'
 
-
-export const createShipment = (project) => {
+export const createShipment = (project, port) => {
+  console.log(project.origin_port)
     return (dispatch, getState, {getFirestore}) => {
      
+     const ports = {
+       "London":[51.442053, 0.397622],
+       "Liverpool":[53.458050,-3.049009],
+       "Grimsby":[53.583151, -0.044369],
+       "Hartlepool":[58.687149, -1.180022]
+     }
+     var point1 = ports[project.origin_port][0]
+     var point2 = ports[project.origin_port][1]
+     console.log(point1)
       const firestore = getFirestore();
-      firestore.collection('shipments3').add({
+      firestore.collection('shipments').add({
         ...project,
-        location:"place01"
+        location:project.origin_port,
+        location2: new firebase.firestore.GeoPoint(point1, point2)
         
       }).then(() => {
         dispatch({ type: 'CREATE_PROJECT_SUCCESS' });
@@ -66,4 +77,16 @@ export const createShipment = (project) => {
     }
   }
 
-      
+  export const count = () => {
+    return (dispatch, getState, {getFirestore}) => {
+      const firestore = getFirestore();
+      const db = firestore.collection('users');
+      db.get()
+  .then(function(querySnapshot) {
+    querySnapshot.forEach(function(doc) {
+        console.log(doc.id, " => ", doc.data());
+        // Build doc ref from doc.id
+    });
+})
+    }
+  }

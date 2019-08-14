@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { createShipment } from '../../store/actions/shipmentActions'
 import { Redirect } from 'react-router-dom'
 
+
 import { withRouter } from "react-router";
 import {
   
@@ -23,15 +24,21 @@ import {
 
 
 class CreateShipment extends Component {
-  
+  constructor(props){
+    super(props) 
+  }
   state = {
     shipment_id: '',
     type: '',
     customer: '',
-    customer_id:'',
+    customer_email:'',
     ship_er: true,
-    val: ""
+    val: "",
+    origin_port:'',
+    desti_port:'',
+    ship_date:''
   }
+
   handleChange = (e) => {
     
     this.setState({
@@ -40,7 +47,7 @@ class CreateShipment extends Component {
     
   }
   handleError = () => {
-    if (this.state.shipment_id === '' && this.state.type === '' && this.state.customer === '' && this.state.customer_id === ''){
+    if (this.state.shipment_id === '' && this.state.type === '' && this.state.customer === '' && this.state.customer_email === ''&& this.state.desti_port === ''){
       this.setState({
         ship_er:false
       })
@@ -54,10 +61,9 @@ class CreateShipment extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.handleError();
-    // console.log(this.state);
     if (this.state.ship_er) {
       console.log(this.state);
-      this.props.createShipment(this.state);
+      this.props.createShipment(this.state, this.state.origin_port);
       this.props.history.push('/');
       alert("Data Added Successfully")
       this.setState({
@@ -84,6 +90,7 @@ class CreateShipment extends Component {
     const { auth } = this.props;
     if (!auth.uid) return <Redirect to='/signin' /> 
     return (
+     
       <div className="container">
          
         
@@ -104,42 +111,70 @@ class CreateShipment extends Component {
                     </Col>
                   </FormGroup>
                   <FormGroup row>
-                    <Col md="2">
-                      <Label htmlFor="text-input">Shipment ID</Label>
-                    </Col>
-                    <Col xs="12" md="9">
-                      <Input type="text" id='shipment_id' onChange={this.handleChange} name="text-input" placeholder="Shipment Id" />
+                    
+                      <Label htmlFor="text-input">Shipment Reference Number</Label>
+                    
+                      <Input type="text" id='shipment_id' onChange={this.handleChange} name="text-input" placeholder="Shipment Ref" />
                       
                       
-                    </Col>
+                    
                   </FormGroup>
                   <FormGroup row>
-                    <Col md="2">
-                      <Label htmlFor="email-input">Shipment Type</Label>
-                    </Col>
-                    <Col xs="12" md="9">
-                      <Input type="text" id="type" name="text-input" placeholder="Type" onChange={this.handleChange} />
-                      
-                    </Col>
+                      <Label htmlFor="ccmonth">Shipment Item Type</Label>
+                      <Input type="select" name="type" id="type" onChange={this.handleChange}>
+                        <option value="Electronics-(No Battery)">Electronics-(No Battery)</option>
+                        <option value="Books and Collectibles">Books and Collectibles</option>
+                        <option value="Dry Food and Supplements">Dry Food and Supplements</option>
+                        <option value="Fashion, Health, Beauty">Fashion, Health, Beauty</option>
+                        <option value="Toy, Sports, Leisure">Toy, Sports, Leisure</option>
+
+                      </Input>
+                    </FormGroup>
+                    <FormGroup row>
+                      <Label htmlFor="ccyear">Origin Port</Label>
+                      <Input type="select" name="desti-city" id="origin_port" onChange={this.handleChange}>
+                      <option value="London">London</option>
+                        <option value="Liverpool">Liverpool</option>
+                        <option value="Grimsby">Grimsby</option>
+                        <option value="Hartlepool">Hartlepool</option>
+      
+                      </Input>
+                    </FormGroup>
+
+                    <FormGroup row>
+                      <Label htmlFor="ccyear">Destination Port</Label>
+                      <Input type="select" name="desti_port" id="desti_port" onChange={this.handleChange}>
+                      <option value="Colombo">Colombo</option>
+                        <option value="Hambanthota">Hambanthota</option>
+                        <option value="Singapore">Singapore Port</option>
+                        <option value="Kerala">Kerala</option>
+      
+                      </Input>
+                    </FormGroup>
+                    <FormGroup row >
+                    
+                      <Label htmlFor="date-input"> Shipment Date </Label>
+                      <Input type="date" id="ship_date" name="ship_date" placeholder="date" onChange={this.handleChange} />
+                    
                   </FormGroup>
                   <FormGroup row>
-                    <Col md="2">
+              
                       <Label htmlFor="email-input">Customer Name</Label>
-                    </Col>
-                    <Col xs="12" md="9">
+                  
                       <Input type="text" id="customer" name="text-input" placeholder="Name" onChange={this.handleChange} />
                      
-                    </Col>
+               
                   </FormGroup>
                   <FormGroup row>
-                    <Col md="2">
-                      <Label htmlFor="email-input">Customer ID</Label>
-                    </Col>
-                    <Col xs="12" md="9">
-                      <Input type="text" id="customer_id" name="text-input" placeholder="Customer Id" onChange={this.handleChange} />
+                 
+                      <Label htmlFor="email-input">Customer Email</Label>
+                  
+                      <Input type="email" id="customer_email" name="text-input" placeholder="Customer Email" onChange={this.handleChange} />
                     
-                    </Col>
+                  
                   </FormGroup>
+
+
                   
                 </Form>
               </CardBody>

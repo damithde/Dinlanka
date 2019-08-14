@@ -7,6 +7,7 @@ import AgentNavbar from '../layouts/AgentNavbar';
 import { compose } from 'redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import ShipmentList from './shipmentList';
+import { Redirect } from 'react-router-dom'
 
 
 class UpdateShipment extends Component {
@@ -34,7 +35,8 @@ class UpdateShipment extends Component {
   render() {
 
         console.log(this.props)
-        const { ship } = this.props;
+        const { ship, auth } = this.props;
+    if (!auth.uid) return <Redirect to='/signin' /> 
         return (
           <React.Fragment>
             <AgentNavbar/>

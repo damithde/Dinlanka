@@ -5,6 +5,10 @@ import { Redirect } from 'react-router-dom'
 import { updateShipment2 } from '../../store/actions/shipmentActions'
 import { updateShipment3 } from '../../store/actions/shipmentActions'
 import { updateShipment4 } from '../../store/actions/shipmentActions'
+import AgentNavbar from '../layouts/AgentNavbar';
+import {  Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+
+
 
 import {
   
@@ -43,11 +47,20 @@ class QrScan extends Component {
       status: 'Closed',
       fadeIn: true,
       timeout: 300,
+      modal: false
+
     }
  
     this.handleScan = this.handleScan.bind(this)
     this.handleScan2 = this.handleScan2.bind(this)
     this.handleScan3 = this.handleScan3.bind(this)
+    this.toggle = this.toggle.bind(this);
+
+  }
+  toggle() {
+    this.setState(prevState => ({
+      modal: !prevState.modal
+    }));
   }
   handleScan(data){
     
@@ -88,19 +101,21 @@ class QrScan extends Component {
   renderRedirect = () => {
     if (this.state.dat) {
       this.props.updateShipment2(this.state.result);
-      return <Redirect to='/create' />
+      this.toggle();
     } 
   }
   renderRedirect2 = () => {
     if (this.state.dat2) {
       this.props.updateShipment3(this.state.result2);
-      return <Redirect to='/create' />
+      this.toggle();
+
     }
   }
   renderRedirect3 = () => {
     if (this.state.dat3) {
       this.props.updateShipment4(this.state.result3);
-      return <Redirect to='/create' />
+      this.toggle();
+
     }
   }
   setRedirect = () => {
@@ -153,13 +168,15 @@ class QrScan extends Component {
   }
   render(){
     const previewStyle = {
-      height: 680,
-      width:  600,
+      height: 780,
+      width:  700,
     }
     
  
     return(
       <React.Fragment>
+        <AgentNavbar/>
+
         <div className='container'>
       <Card>
         <CardBody>
@@ -178,11 +195,9 @@ class QrScan extends Component {
       </div>
       <div className='container'>
       <Card>
-              <CardHeader>
-                <i className="fa fa-align-justify"></i> Collapse <small>accordion</small>
-                <div className="card-header-actions">
-                  <Badge>NEW</Badge>
-                </div>
+              
+              <CardHeader className='bg-primary'>
+                <strong><h3>QR Code Update Location</h3></strong> 
               </CardHeader>
               <CardBody>
                 <div id="accordion">
@@ -194,7 +209,13 @@ class QrScan extends Component {
                     </CardHeader>
                     <Collapse isOpen={this.state.accordion[0]} data-parent="#accordion" id="collapseOne" aria-labelledby="headingOne">
                       <CardBody>
-                                            
+                      <div className="row pb-5 p-5">
+                  <div className="col-md-6">
+                    <p className="font-weight-bold mb-4">Location - Port of Algeciras</p>
+                    <p className="font-weight-bold mb-1">Spain</p>
+                    
+                  </div>
+               
                               
                               <QrReader
                                 delay={this.state.delay}
@@ -203,6 +224,8 @@ class QrScan extends Component {
                                 onScan={this.handleScan}
                                 />
                                 {this.renderRedirect()}
+                                </div>
+
                                
                       </CardBody>
                     </Collapse>
@@ -215,7 +238,13 @@ class QrScan extends Component {
                     </CardHeader>
                     <Collapse isOpen={this.state.accordion[1]} data-parent="#accordion" id="collapseTwo">
                       <CardBody>
-
+                      <div className="row pb-5 p-5">
+                  <div className="col-md-6">
+                    <p className="font-weight-bold mb-4">Location - Port of Algeciras</p>
+                    <p className="font-weight-bold mb-1">Spain</p>
+                    
+                  </div>
+               </div>
                               <QrReader
                                 delay={this.state.delay}
                                 style={previewStyle}
@@ -234,6 +263,13 @@ class QrScan extends Component {
                     </CardHeader>
                     <Collapse isOpen={this.state.accordion[2]} data-parent="#accordion" id="collapseThree">
                       <CardBody>
+                      <div className="row pb-5 p-5">
+                  <div className="col-md-6">
+                    <p className="font-weight-bold mb-4">Location - Port of Algeciras</p>
+                    <p className="font-weight-bold mb-1">Spain</p>
+                    
+                  </div>
+               </div>
                       <QrReader
                                 delay={this.state.delay}
                                 style={previewStyle}
@@ -248,6 +284,18 @@ class QrScan extends Component {
               </CardBody>
             </Card>
             </div>
+
+            <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+            <ModalHeader toggle={this.toggle}>Remove User</ModalHeader>
+            <ModalBody>
+                Do you want to delete?
+            </ModalBody>
+            <ModalFooter>
+            <Button color="primary" onClick={console.log("check")}>Yes</Button>{' '}
+            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+            </ModalFooter>
+            </Modal>
+          
         </React.Fragment>
 
       

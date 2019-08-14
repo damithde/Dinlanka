@@ -7,6 +7,7 @@
     "bootstrap": "^4.3.1",
     "coreui": "^0.4.2-alpha2",
     "firebase": "^6.1.0",
+    "google-map-react": "^1.1.4",
     "jquery": "^3.4.1",
     "materialize-css": "^1.0.0",
     "react": "^16.8.6",

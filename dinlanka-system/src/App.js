@@ -27,6 +27,8 @@ import { browserHistory } from 'react-router';
 import Manage from './components/Admin/manage';
 import Edit from './components/Admin/edit';
 import Show from './components/Admin/show';
+import  QuoteView from './components/customers/quoteView'
+import MapShip from './components/shipments/mapShip'
 
 
 class App extends Component {
@@ -60,6 +62,9 @@ class App extends Component {
       <Route path='/needquote' component={NeedQuote} />
       <Route path='/tracking' component={Tracking} />
       <Route path='/manage' component={Manage}  />
+      <Route path='/qview' component={QuoteView}  />
+      <Route path='/mapship' component={MapShip}  />
+
       <Route path='/edit/:id' render={(props) => <Edit {...props}/>} />
       <Route path='/show/:id' render={(props) => <Show {...props}/>} />
       </Switch>
