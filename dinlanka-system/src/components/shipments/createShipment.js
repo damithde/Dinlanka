@@ -87,26 +87,26 @@ class CreateShipment extends Component {
   }
 
   render() {
+    
     const { auth } = this.props;
     if (!auth.uid) return <Redirect to='/signin' /> 
     return (
      
-      <div className="container">
+      <div className="container" style={{width: '600px',padding:'15px'}}>
          
         
         
   
-  <Card>
+  <Card style={{padding:'15px'}} >
               <CardHeader className='bg-primary'>
                 <strong><h3>Create A New Shipment</h3></strong> 
               </CardHeader>
+              
               <CardBody>
                 <Form id="tex" onSubmit={this.handleSubmit} className="form-horizontal">
                   <FormGroup row>
-                    <Col md="3">
-                      
-                    </Col>
-                    <Col xs="12" md="9">
+                    
+                    <Col xs="9" md="9">
                       <p className="form-control-static"></p>
                     </Col>
                   </FormGroup>
@@ -180,6 +180,7 @@ class CreateShipment extends Component {
               </CardBody>
               <CardFooter>
                 <Button form="tex" type="submit" size="sm" color="primary"><i className="fa fa-dot-circle-o"></i> Submit</Button>
+                <div class="divider" style={{width:'30px',height:'auto',display:'inline-block'}}/>
                 <Button form="tex" type="reset" size="sm" color="danger"><i className="fa fa-ban"></i> Reset</Button>
               </CardFooter>
               
